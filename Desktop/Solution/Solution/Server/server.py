@@ -4,8 +4,10 @@ import config_server
 import string
 import logging
 import time
+import os #had to change this because when i do the git push the log folder is empty and not merge
 from urllib.parse import parse_qs
-
+if not os.path.exists(config_server.LOGS_DIR):
+    os.makedirs(config_server.LOGS_DIR)
 # Setting up the logging configuration
 logging.basicConfig(filename=config_server.LOGS_DIR + 'server.log', level=logging.INFO)
 
